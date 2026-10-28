@@ -1,0 +1,626 @@
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-left: 270px;
+    min-height: 100vh;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f5f5 0%, #e6eeee 100%);
+    color: #2b2d42;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   MENÚ LATERAL
+======================================== */
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(
+        180deg,
+        rgba(18, 38, 43, 0.95) 0%,
+        rgba(10, 20, 24, 0.98) 100%
+    );
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 2px solid rgba(46, 196, 182, 0.4);
+    box-shadow: 8px 0 35px rgba(10, 24, 23, 0.3);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* TÍTULO DEL MENÚ */
+
+.menu-header h3,
+.menu h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.menu-header .divider {
+    height: 2px;
+    background: linear-gradient(90deg, #2ec4b6, transparent);
+    margin-bottom: 30px;
+    border-radius: 2px;
+}
+
+/* LISTA DEL MENÚ */
+
+.menu > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu ul li {
+    position: relative;
+    list-style: none;
+    margin: 0;
+}
+
+.menu ul li a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 14px 18px;
+    color: #cceae6;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+}
+
+/* DETALLE ANIMADO DEL MENÚ */
+
+.menu ul li a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 0;
+    width: 4px;
+    background-color: #2ec4b6;
+    box-shadow: 0 0 10px #2ec4b6;
+    transition: all 0.3s ease;
+    border-radius: 0 4px 4px 0;
+}
+
+.menu ul li a:hover {
+    color: #ffffff;
+    background: linear-gradient(
+        90deg,
+        rgba(46, 196, 182, 0.15),
+        rgba(46, 196, 182, 0.02)
+    );
+    border-color: rgba(46, 196, 182, 0.3);
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(46, 196, 182, 0.1);
+}
+
+.menu ul li a:hover::before {
+    height: 60%;
+}
+
+/* ========================================
+   SUBMENÚ
+======================================== */
+
+.menu .submenu > ul {
+    display: none;
+    position: static;
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    list-style: none;
+    background: rgba(11, 22, 26, 0.85);
+    border-left: 2px solid #2ec4b6;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.menu .submenu:hover > ul,
+.menu .submenu:focus-within > ul {
+    display: block;
+    animation: fadeInSlide 0.3s ease forwards;
+}
+
+.menu .submenu > ul li {
+    margin: 4px 0;
+}
+
+.menu .submenu > ul li a {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    color: #99d5cd;
+    background: transparent;
+    border: none;
+}
+
+.menu .submenu > ul li a:hover {
+    color: #ffffff;
+    background: rgba(46, 196, 182, 0.25);
+    box-shadow: none;
+    transform: translateX(2px);
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   LOGO INFERIOR
+======================================== */
+
+.logo-inferior {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.logo-inferior img {
+    width: 130px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+======================================== */
+
+.contenido {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 45px 35px 60px;
+    animation: aparecer 0.6s ease both;
+}
+
+/* ========================================
+   BANNER SUPERIOR
+======================================== */
+
+.banner-superior {
+    width: 100%;
+    max-width: 1100px;
+    height: 250px;
+    margin: 0 auto 35px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(25, 60, 60, 0.12);
+}
+
+.banner-superior img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* TÍTULO PRINCIPAL */
+
+.contenido h1 {
+    text-align: center;
+    color: #176b68;
+    font-size: clamp(28px, 3vw, 38px);
+    margin: 0 0 20px;
+}
+
+.contenido .descripcion {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+    color: #586b70;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   TARJETAS DE EVIDENCIAS
+======================================== */
+
+.contenido .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.contenido .tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 30px 22px;
+    text-align: center;
+    text-decoration: none;
+    color: #2b2d42;
+    background: #ffffff;
+    border: 1px solid #dce8e7;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(25, 60, 60, 0.09);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.contenido .tarjeta:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(165, 185, 183, 0.3);
+    border-color: rgba(46, 196, 182, 0.5);
+}
+
+/* TÍTULOS Y DESCRIPCIONES DE LAS TARJETAS */
+
+.contenido .tarjeta h2 {
+    color: #176b68;
+    font-size: 21px;
+    line-height: 1.4;
+    margin: 0 0 12px;
+}
+
+.contenido .tarjeta p {
+    color: #586b70;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.contenido .tarjeta span {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 18px;
+    color: #ffffff;
+    background: #176b68;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.contenido .tarjeta:hover span {
+    background: #2ec4b6;
+    color: #102b2b;
+}
+
+/* OCULTAR ESPACIO DE LOS EMOJIS */
+
+.contenido .tarjeta .icono {
+    display: none;
+}
+
+/* ========================================
+   ENCABEZADOS DE GALERÍAS
+======================================== */
+
+.encabezado {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 40px;
+}
+
+.encabezado h1 {
+    color: #176b68;
+    font-size: clamp(26px, 3vw, 36px);
+    margin: 0 0 12px;
+}
+
+.encabezado p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #586b70;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   GALERÍA DE FOTOS
+   DOS FOTOS POR FILA
+======================================== */
+
+.galeria {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: row;
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    align-items: stretch;
+}
+
+.galeria .foto {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #dce8e7;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(25, 60, 60, 0.09);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria .foto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(25, 60, 60, 0.15);
+}
+
+.galeria .foto img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #f5f8f8;
+    border-radius: 10px;
+}
+
+.galeria .foto figcaption {
+    display: block;
+    padding: 15px 8px 8px;
+    text-align: center;
+    color: #285451;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* GALERÍAS CON IMÁGENES DIRECTAS */
+
+.galeria > img {
+    display: block;
+    width: 100% !important;
+    height: 300px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    margin: 0 !important;
+}
+
+/* ========================================
+   BOTÓN PARA VOLVER
+======================================== */
+
+.volver {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 12px 25px;
+    background: #176b68;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.volver:hover {
+    background: #2ec4b6;
+    color: #102b2b;
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   ANIMACIÓN DE APARICIÓN
+======================================== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 950px) {
+    .contenido .tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ========================================
+   TABLET Y CELULAR
+======================================== */
+
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+        padding-top: 160px;
+    }
+
+    .menu {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+        padding: 15px 10px;
+        border-right: none;
+        border-bottom: 2px solid rgba(46, 196, 182, 0.5);
+        background: rgba(14, 28, 33, 0.98);
+    }
+
+    .menu-header {
+        display: none;
+    }
+
+    .menu > ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .menu ul li {
+        width: auto;
+    }
+
+    .menu ul li a {
+        padding: 10px 12px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+
+    .menu ul li a:hover {
+        transform: translateY(-2px);
+    }
+
+    .menu ul li a::before {
+        display: none;
+    }
+
+    .menu .submenu > ul {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        background: rgba(10, 20, 24, 0.98);
+        border: 1px solid rgba(46, 196, 182, 0.4);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+
+    .menu .submenu:hover > ul,
+    .menu .submenu:focus-within > ul {
+        animation: fadeInSlide 0.3s ease forwards;
+    }
+
+    .menu .submenu > ul li {
+        width: 100%;
+    }
+
+    .logo-inferior {
+        display: none;
+    }
+
+    .contenido {
+        padding: 30px 18px 45px;
+    }
+
+    .banner-superior {
+        height: 170px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+    }
+
+    .contenido .tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .contenido .tarjeta {
+        padding: 25px 16px;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 15px;
+    }
+
+    .galeria .foto {
+        padding: 8px;
+    }
+
+    .galeria .foto img,
+    .galeria > img {
+        height: 220px;
+    }
+}
+
+/* ========================================
+   CELULARES PEQUEÑOS
+======================================== */
+
+@media (max-width: 600px) {
+    .banner-superior {
+        height: 140px;
+        margin-bottom: 22px;
+    }
+
+    .contenido .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr !important;
+    }
+
+    .galeria .foto img,
+    .galeria > img {
+        height: auto;
+        max-height: 400px;
+    }
+
+    .contenido .tarjeta:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

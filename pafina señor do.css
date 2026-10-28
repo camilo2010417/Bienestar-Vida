@@ -1,0 +1,218 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f5f5 0%, #e6eeee 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #2b2d42;
+}
+
+/* ENCABEZADO */
+.sitio-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(18, 38, 43, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid #2ec4b6;
+    z-index: 2000;
+}
+
+/* LOGO */
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* MENÚ */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 10px 18px;
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background: rgba(46, 196, 182, 0.18);
+    box-shadow: 0 0 15px rgba(46, 196, 182, 0.2);
+}
+
+/* SUBMENÚ */
+.submenu {
+    position: relative;
+}
+
+.submenu ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    padding: 8px;
+    background: rgba(10, 25, 29, 0.98);
+    border: 1px solid rgba(46, 196, 182, 0.3);
+    border-radius: 12px;
+    flex-direction: column;
+}
+
+.submenu:hover > ul {
+    display: flex;
+}
+
+.submenu ul li a {
+    padding: 10px 14px;
+    font-size: 14px;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-principal {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 120px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+/* BANNER SUPERIOR */
+.banner-superior {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-marco {
+    width: 100%;
+    max-width: 1500px;
+    height: 410px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(46, 196, 182, 0.35);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(18, 38, 43, 0.15);
+    box-sizing: border-box;
+}
+
+.banner-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border: none;
+    border-radius: 20px;
+    box-shadow: none;
+    transform: none;
+    box-sizing: border-box;
+}
+
+/* SECCIÓN DEL VIDEO */
+.seccion-video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.video-tarjeta {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(46, 196, 182, 0.3);
+    border-radius: 25px;
+    padding: 35px 20px;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 20px 40px rgba(18, 38, 43, 0.12);
+}
+
+.video-tarjeta h2 {
+    margin: 0 0 25px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #176b68;
+    letter-spacing: 0.5px;
+}
+
+/* REPRODUCTOR */
+.video-contenedor {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(46, 196, 182, 0.35);
+    box-shadow: 0 12px 25px rgba(18, 38, 43, 0.18);
+}
+
+.video-contenedor video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+/* DISEÑO PARA CELULARES */
+@media (max-width: 600px) {
+    .sitio-header {
+        padding: 12px 3%;
+    }
+
+    .menu ul {
+        gap: 2px;
+    }
+
+    .menu ul li a {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+
+    .contenedor-principal {
+        padding: 100px 12px 40px;
+    }
+
+    .banner-marco {
+        width: 100%;
+        height: 250px;
+    }
+
+    .video-tarjeta {
+        padding: 25px 12px;
+    }
+
+    .video-tarjeta h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* POSICIÓN DE LA IMAGEN DEL BANNER */
+.banner-img {
+    position: relative;
+    left: -112px;
+    top: -37px;
+    transform: scale(1.1);
+    transform-origin: center;
+}

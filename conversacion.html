@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversación con estudiante - Bienestar &amp; Vida</title>
+    <link rel="stylesheet" href="evidencias.css">
+
+    <style>
+        .contenido {
+            min-width: 0;
+        }
+
+        /* BANNER SUPERIOR */
+        .banner-superior {
+            width: 100%;
+            max-width: 1100px;
+            height: 250px;
+            margin: 0 auto 35px;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(25, 60, 60, 0.12);
+        }
+
+        .banner-superior img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* GALERÍA */
+        .contenido .galeria {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 25px;
+            width: 100%;
+            max-width: 1100px;
+            margin: 30px auto;
+            align-items: start;
+        }
+
+        .contenido .galeria img {
+            display: block;
+            width: 100% !important;
+            height: 300px;
+            object-fit: contain;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            margin: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .banner-superior {
+                height: 170px;
+                margin-bottom: 25px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .banner-superior {
+                height: 140px;
+                margin-bottom: 22px;
+            }
+
+            .contenido .galeria {
+                grid-template-columns: 1fr !important;
+            }
+
+            .contenido .galeria img {
+                height: auto;
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="menu">
+        <h3>Bienestar &amp; Vida</h3>
+        <hr>
+
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+
+            <li class="submenu">
+                <a href="#">Nosotros</a>
+                <ul>
+                    <li><a href="mision.html">Misión</a></li>
+                    <li><a href="vision.html">Visión</a></li>
+                    <li><a href="objetivo general.html">Objetivo general</a></li>
+                    <li><a href="objetivo especifico .html">Objetivos específicos</a></li>
+                    <li><a href="pregunta problema.html">Pregunta problema</a></li>
+                    <li><a href="cronograma.html">Cronograma</a></li>
+                </ul>
+            </li>
+            <li><a href="documento.html">Proyecto</a></li>
+            <li><a href="solucion tecnologica.html">Solución Tecnológica</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="evidencias.html">Evidencias</a></li>
+        </ul>
+
+        <div class="logo-inferior">
+            <img src="logo2.png" alt="Logo Bienestar &amp; Vida">
+        </div>
+    </nav>
+
+    <main class="contenido">
+
+        <!-- BANNER -->
+        <div class="banner-superior">
+            <img src="bannersevidencias.jpeg" alt="Banner de Bienestar y Vida">
+        </div>
+
+        <h1>Conversación con estudiante</h1>
+
+        <p>
+            Registro fotográfico de la conversación realizada como parte
+            del proyecto Bienestar &amp; Vida.
+        </p>
+
+        <div class="galeria">
+            <img src="conversacion.jpeg" alt="Conversación con estudiante">
+        </div>
+
+        <a href="evidencias.html" class="volver">Volver a evidencias</a>
+
+    </main>
+
+</body>
+</html>
